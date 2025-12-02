@@ -50,7 +50,6 @@ Algorithm
 
 PROCEDURE
 
-
 •	Refer Algorithms and write code for the experiment.
 •	Open SCILAB in System
 •	Type your code in New Editor
@@ -64,27 +63,62 @@ MODEL GRAPH:
 <img width="512" height="365" alt="image" src="https://github.com/user-attachments/assets/acd787bd-5281-4f1b-802f-1aa39fac9189" />
 
 
-Program
+Program:
+```c
+                                                       // GENERATION AND DETECTION OF FM
+// Parameters
+am = 11.3;        // Message amplitude
+Fm = 520;         // Message frequency (Hz)
+B  = 6.3;         // Modulation index
+Ac = 22.6;          // Carrier amplitude
+Fc = 5200;        // Carrier frequency (Hz)
+Fs = 91700;       // Sampling frequency
+T  = 0:1/Fs:2/Fm; // Time vector (two cycles of message)
+
+// Message signal
+em = am * cos(2*%pi*Fm*T);
+subplot(3,1,1);
+plot(T, em);
+xtitle("Message Signal");
+xgrid();
+
+// Carrier signal
+ec = Ac * cos(2*%pi*Fc*T);
+subplot(3,1,2);
+plot(T, ec);
+xtitle("Carrier Signal");
+xgrid();
+// FM signal
+efm = Ac * cos( (2*%pi*Fc*T) + (B * sin(2*%pi*Fm*T)) );
+subplot(3,1,3);
+plot(T, efm);
+xtitle("FM Signal");
+xgrid();
+```
 
 
-Output Waveform
+Output Waveform:
+
+
+<img width="771" height="419" alt="4" src="https://github.com/user-attachments/assets/d04ae897-a95f-49e7-9b82-3cd7fa61d748" />
 
 
 
-Tabulation
+Tabulation:
+
+![WhatsApp Image 2025-11-20 at 20 56 07_aa9e3f43](https://github.com/user-attachments/assets/c29230e1-2e75-449a-aa41-e30a6550fbaa)
 
 
+Calculation:
 
-Calculation
+![WhatsApp Image 2025-11-20 at 20 56 22_06d7115b](https://github.com/user-attachments/assets/09eb18a4-8347-40d5-8441-dcc780e97905)
 
 
+Frequency Deviation Practical = 3133.33Hz
 
-Frequency Deviation Practical = 
+Modulation Index Practical	= 6.1
 
-Modulation Index Practical	= 
-
-Modulation Index Theoretical	=
-
+Modulation Index Theoretical	= 6.3
 
 
 RESULT:
